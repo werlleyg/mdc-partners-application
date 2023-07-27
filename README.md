@@ -1,4 +1,3 @@
-
 <h2 align="center">Mid Dev Test</h2>
 
 <div align="center">
@@ -26,19 +25,19 @@
 </p>
 
 ## :space_invader: Features
--   [x] Create a new project in Next.js 13  
--   [ ] Initial settings
--   [ ] Install essential dependencies
--   [ ] Exercise 1: Simple Calculator
--   [ ] Exercise 2: Prime Numbers
--   [ ] Exercise 3: Factorial
--   [ ] Exercise 4: Palindrome
--   [ ] Exercise 5: Table
--   [ ] Exercise 6: Vowel Counter
--   [ ] Exercise 7: Grade Average
--   [ ] Exercise 8: Interest Calculation
--   [ ] CI/CD to deploy on Vercel
 
+- [x] Create a new project in Next.js 13
+- [x] Initial settings
+- [ ] Install essential dependencies
+- [ ] Exercise 1: Simple Calculator
+- [ ] Exercise 2: Prime Numbers
+- [ ] Exercise 3: Factorial
+- [ ] Exercise 4: Palindrome
+- [ ] Exercise 5: Table
+- [ ] Exercise 6: Vowel Counter
+- [ ] Exercise 7: Grade Average
+- [ ] Exercise 8: Interest Calculation
+- [ ] CI/CD to deploy on Vercel
 
 <br/>
 
