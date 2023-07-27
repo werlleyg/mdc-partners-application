@@ -2,6 +2,7 @@
   --white-color: #ffffff;
   --brack-color: #121214;
   --gray-color: #f5f7f6;
+  --transparent: transparent;
 
   /* custom  */
   --primary-color: #003349;
@@ -9,6 +10,9 @@
   --title-color: #009cbd;
 
   --background-color: var(--gray-color);
+
+  /* settings  */
+  --transition-time: 0.3s;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,8 +38,21 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+@keyframes fade-in-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
