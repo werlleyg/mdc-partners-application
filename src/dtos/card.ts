@@ -4,4 +4,5 @@ export interface ICard {
   title: string;
   Icon: IconType;
   description?: string;
+  link: string;
 }
