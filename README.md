@@ -28,7 +28,7 @@
 
 - [x] Create a new project in Next.js 13
 - [x] Initial settings
-- [ ] Install essential dependencies
+- [x] Install essential dependencies
 - [ ] Exercise 1: Simple Calculator
 - [ ] Exercise 2: Prime Numbers
 - [ ] Exercise 3: Factorial
