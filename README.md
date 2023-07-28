@@ -35,7 +35,7 @@
 - [x] Exercise 4: Palindrome
 - [x] Exercise 5: Table
 - [x] Exercise 6: Vowel Counter
-- [ ] Exercise 7: Grade Average
+- [x] Exercise 7: Grade Average
 - [ ] Exercise 8: Interest Calculation
 - [ ] CI/CD to deploy on Vercel
 

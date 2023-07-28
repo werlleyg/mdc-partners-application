@@ -42,11 +42,8 @@ export default function SimpleCalculator() {
   );
 
   const calculator = useCallback(() => {
-    const {
-      firstNumber: firstNumber,
-      secondNumber: secondNumber,
-      operator,
-    }: ICalculator = calculatorData as ICalculator;
+    const { firstNumber, secondNumber, operator }: ICalculator =
+      calculatorData as ICalculator;
 
     // Check if all attributes exist
     if (!firstNumber || !secondNumber || !operator) return;
@@ -113,6 +110,7 @@ export default function SimpleCalculator() {
             value={calculatorData?.firstNumber ?? ""}
             name="firstNumber"
             onChange={handleChangeInput}
+            disabled={showSpinner}
             required
           />
           <Input
@@ -121,6 +119,7 @@ export default function SimpleCalculator() {
             value={calculatorData?.secondNumber ?? ""}
             name="secondNumber"
             onChange={handleChangeInput}
+            disabled={showSpinner}
             required
           />
           <Input
@@ -129,9 +128,14 @@ export default function SimpleCalculator() {
             value={calculatorData?.operator ?? ""}
             name="operator"
             onChange={handleChangeInput}
+            disabled={showSpinner}
             required
           />
-          <Button customTitle="Calculate" customColor="secondary" />
+          <Button
+            customTitle="Calculate"
+            customColor="secondary"
+            disabled={showSpinner}
+          />
         </Form>
         {calculationResult?.result && (
           <DivResult>
