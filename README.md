@@ -30,7 +30,7 @@
 - [x] Initial settings
 - [x] Install essential dependencies
 - [x] Exercise 1: Simple Calculator
-- [ ] Exercise 2: Prime Numbers
+- [x] Exercise 2: Prime Numbers
 - [ ] Exercise 3: Factorial
 - [ ] Exercise 4: Palindrome
 - [ ] Exercise 5: Table

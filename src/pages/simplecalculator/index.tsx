@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import { toast } from "react-toastify";
 
 // styles
-import { Container, DivResult, Form, P, Span } from "./styles";
+import { Container, DivResult, Form, P, Span, Subtitle } from "./styles";
 // components
 import { CustomHead } from "@/layout/CustomHead";
 import { H1 } from "@/components/H1";
@@ -83,7 +83,11 @@ export default function SimpleCalculator() {
       <CustomHead title={titlePage} />
       <Header link='/' />
       <Container>
-        <H1>Simple Calculator</H1>
+        <H1>{titlePage}</H1>
+        <Subtitle>
+          Simple calculator that performs mathematical operations with two
+          numbers selected by the user.
+        </Subtitle>
         <Form onSubmit={handleSubmit}>
           <InputCustom
             type='number'

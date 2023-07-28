@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const Container = styled.header`
   width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
