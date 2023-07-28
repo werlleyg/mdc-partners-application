@@ -48,13 +48,13 @@ export default function PrimeNumber() {
     [primeNumberData],
   );
 
-  const numberIsPrime = useCallback((currentnumber: number) => {
+  const numberIsPrime = useCallback((currentNumber: number) => {
     // if the number is less than or equal to 1, it is not prime
-    if (currentnumber <= 1) return false;
+    if (currentNumber <= 1) return false;
 
     // if the number is divisible by any integer i between 2 and its square root, then it is not a prime number
-    for (let i = 2; i <= Math.sqrt(currentnumber); i++) {
-      if (currentnumber % i === 0) {
+    for (let i = 2; i <= Math.sqrt(currentNumber); i++) {
+      if (currentNumber % i === 0) {
         return false;
       }
     }
@@ -130,10 +130,15 @@ export default function PrimeNumber() {
             value={primeNumberData?.number ?? ""}
             name="number"
             onChange={handleChangeInput}
+            disabled={showSpinner}
             required
           />
 
-          <Button customTitle="Check if it is prime" customColor="secondary" />
+          <Button
+            customTitle="Check if it is prime"
+            customColor="secondary"
+            disabled={showSpinner}
+          />
         </Form>
 
         <DivResult showContent={primeNumberData?.showResult}>
@@ -159,6 +164,7 @@ export default function PrimeNumber() {
           } 10 prime numbers`}
           customColor="secondary"
           onClick={handleSetShowPrimeNumbers}
+          disabled={showSpinner}
         />
         <DivDeck>
           {listNumberData?.map((primeNumber) => (
