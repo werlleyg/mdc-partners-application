@@ -11,56 +11,58 @@ import { Header } from "@/components/Header";
 import { DotSpinner } from "@/components/DotSpinner";
 
 // types
-import { IFactorialNumberData } from "@/dtos/factorial";
+import { IPalindromeData } from "@/dtos/palindrome";
 
-export default function Factorial() {
-  const [titlePage] = useState<string>("Factorial");
-  const [factorialNumberData, setFactorialNumberData] =
-    useState<IFactorialNumberData>();
-  const [factorialResult, setFactorialResult] =
-    useState<IFactorialNumberData>();
+export default function Palindrome() {
+  const [titlePage] = useState<string>("Palindrome");
+  const [palindromeData, setPalindromeData] = useState<IPalindromeData>();
+  const [palindromeDataResult, setPalindromeDataResult] =
+    useState<IPalindromeData>();
   const [showSpinner, setShowSpinner] = useState<boolean>(false);
   const DELAY_TIME: number = 3; // in seconds
 
   // handle change input
   const handleChangeInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      const checkRegex = /^(\d+(\.\d*)?|\.\d+)?$/g;
       // get input value
       let value = event.target.value.trim();
       // get input name
       const name = event.target.name;
-      // check if the value is of integer type and greater than or equal to 0
-      if (!checkRegex.test(value)) return;
-      // set number value
-      setFactorialNumberData({ ...factorialNumberData, [name]: value });
+      // set data value
+      setPalindromeData({ ...palindromeData, [name]: value });
     },
-    [factorialNumberData],
+    [palindromeData],
   );
 
-  // get factorial of number N
-  const getFactorialOfNumberN = useCallback(() => {
-    const number = factorialNumberData?.number as number;
+  // check if the value is a palindrome
+  const isPalindrome = useCallback(() => {
+    const { value } = palindromeData as IPalindromeData;
 
-    // default value factorial result
-    let factorialResult: number = 1;
+    // split value
+    const arrayValue: string[] = value?.toLocaleLowerCase().split("") || [];
 
-    // iterate values to find the factorial
-    for (let i = number; i > 0; i--) {
-      factorialResult = factorialResult * i;
+    // default base number value
+    const baseNumber: number = Math.floor(arrayValue.length / 2) - 1;
+
+    // isPalindrome default value
+    let isPalindrome: boolean = true;
+
+    for (let i = 0; i <= baseNumber; i++) {
+      if (arrayValue[i] !== arrayValue[arrayValue.length - i - 1])
+        isPalindrome = false;
     }
 
-    // set factorial result and show on screen
+    // set palindrome result and show on screen
     setTimeout(() => {
-      setFactorialResult({
-        ...factorialNumberData,
+      setPalindromeDataResult({
+        ...palindromeData,
         showResult: true,
-        factorialResult,
+        isPalindrome,
       });
       // hide spinner
       setShowSpinner(false);
     }, DELAY_TIME * 1000);
-  }, [factorialNumberData]);
+  }, [palindromeData]);
 
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
@@ -68,15 +70,15 @@ export default function Factorial() {
       // show spinner
       setShowSpinner(true);
       // hide show result
-      setFactorialResult({
-        ...factorialNumberData,
+      setPalindromeDataResult({
+        ...palindromeData,
         showResult: false,
       });
 
-      // get factorial
-      getFactorialOfNumberN();
+      // is palindrome
+      isPalindrome();
     },
-    [getFactorialOfNumberN, factorialNumberData],
+    [isPalindrome, palindromeData],
   );
 
   return (
@@ -86,32 +88,34 @@ export default function Factorial() {
       <Container>
         <H1>{titlePage}</H1>
         <Subtitle>
-          Please enter the number, and the factorial will be calculated when you
-          press the button.
+          Please provide a word or a set of characters, and I will check if it
+          is a palindrome.
         </Subtitle>
         <Form onSubmit={handleSubmit}>
           <InputCustom
             type='text'
-            placeholder='Number'
-            value={factorialNumberData?.number ?? ""}
-            name='number'
+            placeholder='Value'
+            value={palindromeData?.value ?? ""}
+            name='value'
             onChange={handleChangeInput}
             disabled={showSpinner}
             required
           />
 
           <Button
-            customTitle='Calculate fatorial'
+            customTitle='Check if is palindrome'
             customColor='secondary'
             disabled={showSpinner}
           />
         </Form>
 
-        <DivResult showContent={factorialResult?.showResult}>
+        <DivResult showContent={palindromeDataResult?.showResult}>
           <P>
-            The result of <b>{factorialResult?.number}!</b> is
+            The value <b>{palindromeDataResult?.value}</b>
           </P>
-          <Span>{factorialResult?.factorialResult}</Span>
+          <Span>
+            is {!palindromeDataResult?.isPalindrome && "not"} a palindrome
+          </Span>
         </DivResult>
 
         {showSpinner && <DotSpinner />}
