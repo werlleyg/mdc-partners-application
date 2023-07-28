@@ -81,7 +81,7 @@ export default function SimpleCalculator() {
   return (
     <>
       <CustomHead title={titlePage} />
-      <Header link='/' />
+      <Header link="/" />
       <Container>
         <H1>{titlePage}</H1>
         <Subtitle>
@@ -90,30 +90,30 @@ export default function SimpleCalculator() {
         </Subtitle>
         <Form onSubmit={handleSubmit}>
           <InputCustom
-            type='number'
-            placeholder='First number (Ex.: 1, 2, 3...)'
+            type="number"
+            placeholder="First number (Ex.: 1, 2, 3...)"
             value={calculatorData?.first_number ?? ""}
-            name='first_number'
+            name="first_number"
             onChange={handleChangeInput}
             required
           />
           <InputCustom
-            type='number'
-            placeholder='Second number (Ex.: 1, 2, 3...)'
+            type="number"
+            placeholder="Second number (Ex.: 1, 2, 3...)"
             value={calculatorData?.second_number ?? ""}
-            name='second_number'
+            name="second_number"
             onChange={handleChangeInput}
             required
           />
           <InputCustom
-            type='text'
-            placeholder='Operator (Ex.: +, -, * or /)'
+            type="text"
+            placeholder="Operator (Ex.: +, -, * or /)"
             value={calculatorData?.operator ?? ""}
-            name='operator'
+            name="operator"
             onChange={handleChangeInput}
             required
           />
-          <Button customTitle='Calculate' customColor='secondary' />
+          <Button customTitle="Calculate" customColor="secondary" />
         </Form>
         {calculationResult?.result && (
           <DivResult>
