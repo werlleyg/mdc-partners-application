@@ -90,7 +90,7 @@ export default function SimpleCalculator() {
       // set calculator
       calculator();
     },
-    [calculator],
+    [calculator, calculatorData],
   );
 
   return (

@@ -49,7 +49,6 @@ export default function Factorial() {
     for (let i = number; i > 0; i--) {
       factorialResult = factorialResult * i;
     }
-    console.log(factorialNumberData);
 
     // set factorial result and show on screen
     setTimeout(() => {
