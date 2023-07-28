@@ -1,5 +1,4 @@
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
-import { toast } from "react-toastify";
 
 // styles
 import {
@@ -16,16 +15,10 @@ import { CustomHead } from "@/layout/CustomHead";
 import { H1 } from "@/components/H1";
 import { InputCustom } from "@/components/Input/styles";
 // types
-import { ICalculator } from "@/dtos/calculator";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import { DotSpinner } from "@/components/DotSpinner";
-
-interface IPrimeNumberData {
-  number?: number;
-  isPrime?: boolean;
-  showResult?: boolean;
-}
+import { IPrimeNumberData } from "@/dtos/primeNumber";
 
 export default function PrimeNumber() {
   const [titlePage] = useState<string>("Prime Number");
