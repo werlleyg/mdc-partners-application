@@ -6,6 +6,9 @@
   --gray-color: #f5f7f6;
   --transparent: transparent;
 
+  /* rgba */
+  --dark-rgb-color: 0, 0, 0;
+
   /* custom  */
   --primary-color: #003349;
   --secondary-color: #ffb81c;
@@ -16,6 +19,7 @@
   /* settings  */
   --transition-time: 0.3s;
   --max-width: 63rem;
+  --border-radius: 5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,6 +32,9 @@
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
+
+  outline-color: var(--primary-color);
+  outline-offset: 0.25rem;
 }
 
 html,
@@ -35,6 +42,13 @@ body,
 #__next {
   height: 100%;
   background-color: var(--background-color);
+}
+
+main {
+  width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 a {
