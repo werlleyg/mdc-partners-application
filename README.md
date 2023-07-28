@@ -33,7 +33,7 @@
 - [x] Exercise 2: Prime Numbers
 - [x] Exercise 3: Factorial
 - [x] Exercise 4: Palindrome
-- [ ] Exercise 5: Table
+- [x] Exercise 5: Table
 - [ ] Exercise 6: Vowel Counter
 - [ ] Exercise 7: Grade Average
 - [ ] Exercise 8: Interest Calculation
