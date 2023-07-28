@@ -1,11 +1,11 @@
 import { ReactNode, useCallback, useEffect } from "react";
 
 import { ButtonCloseModal, Container, DivHeader } from "./styles";
-import Image from "next/image";
 
 // icons
 import { IoClose } from "react-icons/io5";
 
+// types
 interface ModalProps {
   children: ReactNode;
   showCloseButton: boolean;

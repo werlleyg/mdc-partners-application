@@ -1,5 +1,8 @@
+// link
 import Link from "next/link";
+// styles
 import { ButtonCard } from "./styles";
+// types
 import { ICard } from "@/dtos/card";
 
 export function Card({ title, Icon, description, link }: ICard) {

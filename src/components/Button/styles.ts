@@ -9,7 +9,7 @@ export const ButtonCustom = styled.button<IButton>`
   margin-inline: auto;
   border-radius: var(--border-radius);
   border: 0;
-  padding: 0.75rem 1.25rem;
+  padding: 1rem 1.25rem;
   font-size: 1rem;
   font-weight: 600;
   color: var(--white-color);

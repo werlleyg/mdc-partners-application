@@ -1,5 +1,6 @@
 import Head from "next/head";
 
+// types
 interface ICustomHead {
   title?: string;
 }

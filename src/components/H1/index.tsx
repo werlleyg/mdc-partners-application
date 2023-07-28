@@ -1,4 +1,4 @@
-import Link from "next/link";
+// styles
 import { H1Custom } from "./styles";
 
 interface IH1 {
