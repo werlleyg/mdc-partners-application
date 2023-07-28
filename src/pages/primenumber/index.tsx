@@ -71,14 +71,20 @@ export default function PrimeNumber() {
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+
+      // check number in primenumberdata
       if (!primeNumberData?.number) return;
 
+      // show spinner
       setShowSpinner(true);
 
+      // check if number is prime
       const isPrime: boolean = numberIsPrime(primeNumberData?.number);
 
       setTimeout(() => {
+        // set result in state
         setPrimeNumberData({ ...primeNumberData, showResult: true, isPrime });
+        // hide spinner
         setShowSpinner(false);
       }, DELAY_TIME * 1000);
     },
@@ -87,14 +93,20 @@ export default function PrimeNumber() {
 
   const findFirstNPrimeNumbers = useCallback(
     (maxNumber: number) => {
+      // show spinner
       setShowSpinner(true);
+
+      // set counter and initial number
       let counter: number = 0;
       let initialNumber = (listNumberData[listNumberData.length - 1] || 0) + 2;
 
       for (let i = initialNumber; counter < maxNumber; i++) {
+        // check if number is prime
         if (numberIsPrime(i)) {
           setTimeout(() => {
+            // hide spinner
             setShowSpinner(false);
+            // set result in state
             setListNumberData((prev) => [...prev, i]);
           }, DELAY_TIME * 1000);
           counter++;
