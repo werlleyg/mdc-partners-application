@@ -30,7 +30,7 @@ export default function Table() {
       const name = event.target.name;
       // check if value is type number
       if (!checkRegex.test(value)) return;
-      // set number value and rest isPrime and ShowResult values
+      // set data value
       setTableData({
         ...tableData,
         [name]: value,
