@@ -1,7 +1,7 @@
 export interface IGradeAverage {
-  firstGrade?: number;
-  secondGrade?: number;
-  thirdGrade?: number;
+  firstGrade?: string;
+  secondGrade?: string;
+  thirdGrade?: string;
   gradeAverage?: string;
   showResult?: boolean;
 }

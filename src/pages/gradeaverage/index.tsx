@@ -23,7 +23,7 @@ export default function GradeAverage() {
   // handle change input
   const handleChangeInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      const checkRegex = /^(?:[0-9]+(?:\.[0-9]*)?)?$/;
+      const checkRegex = /^(?!.*[,].*,)[0-9,\s]*$/;
       // get input value
       let value = event.target.value.trim();
       // get input name
@@ -32,10 +32,16 @@ export default function GradeAverage() {
       // check if name is operator and check regex value
       if (!checkRegex.test(value)) return;
 
-      const auxValue = value ? parseFloat(value) : "";
+      let auxValue = parseFloat(value.replace(",", "."));
+
+      if (auxValue > 10)
+        return toast.warn("The grade should be between 0 and 10");
 
       // set data value
-      setGradeAverageData({ ...gradeAverageData, [name]: auxValue });
+      setGradeAverageData({
+        ...gradeAverageData,
+        [name]: value,
+      });
     },
     [gradeAverageData],
   );
@@ -48,14 +54,18 @@ export default function GradeAverage() {
 
     // Check if all attributes exist
     if (
-      (!firstGrade && firstGrade !== 0) ||
-      (!secondGrade && secondGrade !== 0) ||
-      (!thirdGrade && thirdGrade !== 0)
+      (!firstGrade && firstGrade !== "0") ||
+      (!secondGrade && secondGrade !== "0") ||
+      (!thirdGrade && thirdGrade !== "0")
     )
       return setShowSpinner(false);
 
+    const firstGradeNumber = parseFloat(firstGrade?.replace(",", "."));
+    const secondGradeNumber = parseFloat(secondGrade?.replace(",", "."));
+    const thirdGradeNumber = parseFloat(thirdGrade?.replace(",", "."));
+
     let gradeAverage: string = (
-      (firstGrade + secondGrade + thirdGrade) /
+      (firstGradeNumber + secondGradeNumber + thirdGradeNumber) /
       3
     ).toFixed(2);
 
