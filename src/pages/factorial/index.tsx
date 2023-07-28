@@ -30,32 +30,39 @@ export default function Factorial() {
   const handleChangeInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const checkRegex = /^(\d+(\.\d*)?|\.\d+)?$/g;
+      // get input value
       let value = event.target.value.trim();
+      // get input name
       const name = event.target.name;
       // check if the value is of integer type and greater than or equal to 0
       if (!checkRegex.test(value)) return;
-
+      // set number value
       setFactorialNumberData({ ...factorialNumberData, [name]: value });
     },
     [factorialNumberData],
   );
 
+  // get factorial of number N
   const getFactorialOfNumberN = useCallback(() => {
     const number = factorialNumberData?.number as number;
 
+    // default value factorial result
     let factorialResult: number = 1;
 
+    // iterate values to find the factorial
     for (let i = number; i > 0; i--) {
       factorialResult = factorialResult * i;
     }
     console.log(factorialNumberData);
 
+    // set factorial result and show on screen
     setTimeout(() => {
       setFactorialResult({
         ...factorialNumberData,
         showResult: true,
         factorialResult,
       });
+      // hide spinner
       setShowSpinner(false);
     }, DELAY_TIME * 1000);
   }, [factorialNumberData]);
@@ -63,12 +70,15 @@ export default function Factorial() {
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+      // show spinner
       setShowSpinner(true);
+      // hide show result
       setFactorialResult({
         ...factorialNumberData,
         showResult: false,
       });
 
+      // get factorial
       getFactorialOfNumberN();
     },
     [getFactorialOfNumberN, factorialNumberData],

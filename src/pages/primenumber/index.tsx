@@ -31,12 +31,12 @@ export default function PrimeNumber() {
   const handleChangeInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const checkRegex = /^\d*$/g;
+      // get input value
       let value = event.target.value.trim();
+      // get input name
       const name = event.target.name;
-
       // check if value is type number
       if (!checkRegex.test(value)) return;
-
       // set number value and rest isPrime and ShowResult values
       setPrimeNumberData({
         ...primeNumberData,
@@ -116,7 +116,7 @@ export default function PrimeNumber() {
   return (
     <>
       <CustomHead title={titlePage} />
-      <Header link='/' />
+      <Header link="/" />
       <Container>
         <H1>{titlePage}</H1>
         <Subtitle>
@@ -125,15 +125,15 @@ export default function PrimeNumber() {
         </Subtitle>
         <Form onSubmit={handleSubmit}>
           <InputCustom
-            type='number'
-            placeholder='Number'
+            type="number"
+            placeholder="Number"
             value={primeNumberData?.number ?? ""}
-            name='number'
+            name="number"
             onChange={handleChangeInput}
             required
           />
 
-          <Button customTitle='Check if it is prime' customColor='secondary' />
+          <Button customTitle="Check if it is prime" customColor="secondary" />
         </Form>
 
         <DivResult showContent={primeNumberData?.showResult}>
@@ -157,7 +157,7 @@ export default function PrimeNumber() {
           customTitle={`Generate ${
             listNumberData.length > 0 ? "more" : "the first"
           } 10 prime numbers`}
-          customColor='secondary'
+          customColor="secondary"
           onClick={handleSetShowPrimeNumbers}
         />
         <DivDeck>

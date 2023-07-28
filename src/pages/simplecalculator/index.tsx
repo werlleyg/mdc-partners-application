@@ -21,7 +21,9 @@ export default function SimpleCalculator() {
   const handleChangeInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const checkRegex = /^$|^[+\-*/]$/;
+      // get input value
       let value = event.target.value.trim();
+      // get input name
       const name = event.target.name;
 
       // check if name is operator and check regex value
