@@ -34,7 +34,7 @@
 - [x] Exercise 3: Factorial
 - [x] Exercise 4: Palindrome
 - [x] Exercise 5: Table
-- [ ] Exercise 6: Vowel Counter
+- [x] Exercise 6: Vowel Counter
 - [ ] Exercise 7: Grade Average
 - [ ] Exercise 8: Interest Calculation
 - [ ] CI/CD to deploy on Vercel

@@ -25,10 +25,9 @@ interface IDivResult {
 }
 
 export const DivResult = styled.div<IDivResult>`
-  /* overflow-y: hidden; */
+  overflow: hidden;
   max-height: ${(props) => (props.showContent ? "auto" : "0rem")};
   padding: ${(props) => (props.showContent ? "1rem 0rem" : "0rem")};
-  word-wrap: break-word;
 
   transition: height ease-in-out 3s;
   b {
@@ -47,7 +46,6 @@ export const DivResult = styled.div<IDivResult>`
     color: var(--error-color);
   }
 `;
-
 export const P = styled.p`
   margin: 0rem;
   padding: 0rem;

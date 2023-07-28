@@ -14,6 +14,7 @@ import { ICard } from "@/dtos/card";
 import { BsFillCalculatorFill } from "react-icons/bs";
 import { TbNumbers } from "react-icons/tb";
 import { FaExclamation, FaSync, FaHashtag } from "react-icons/fa";
+import { AiOutlineFontColors } from "react-icons/ai";
 
 export default function Home() {
   const [cardData] = useState<ICard[]>([
@@ -41,6 +42,11 @@ export default function Home() {
       title: "Table",
       Icon: FaHashtag,
       link: "/table",
+    },
+    {
+      title: "Vowel Counter",
+      Icon: AiOutlineFontColors,
+      link: "/vowelcounter",
     },
   ]);
   return (

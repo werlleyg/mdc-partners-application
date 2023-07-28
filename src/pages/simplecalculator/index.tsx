@@ -6,12 +6,12 @@ import { Container, DivResult, Form, P, Span, Subtitle } from "./styles";
 // components
 import { CustomHead } from "@/layout/CustomHead";
 import { H1 } from "@/components/H1";
-import { InputCustom } from "@/components/Input/styles";
+import { Input } from "@/components/Input";
 import { DotSpinner } from "@/components/DotSpinner";
-// types
-import { ICalculator } from "@/dtos/calculator";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
+// types
+import { ICalculator } from "@/dtos/calculator";
 
 export default function SimpleCalculator() {
   const [titlePage] = useState<string>("Simple Calculator");
@@ -107,7 +107,7 @@ export default function SimpleCalculator() {
           numbers selected by the user.
         </Subtitle>
         <Form onSubmit={handleSubmit}>
-          <InputCustom
+          <Input
             type="number"
             placeholder="First number (Ex.: 1, 2, 3...)"
             value={calculatorData?.firstNumber ?? ""}
@@ -115,7 +115,7 @@ export default function SimpleCalculator() {
             onChange={handleChangeInput}
             required
           />
-          <InputCustom
+          <Input
             type="number"
             placeholder="Second number (Ex.: 1, 2, 3...)"
             value={calculatorData?.secondNumber ?? ""}
@@ -123,7 +123,7 @@ export default function SimpleCalculator() {
             onChange={handleChangeInput}
             required
           />
-          <InputCustom
+          <Input
             type="text"
             placeholder="Operator (Ex.: +, -, * or /)"
             value={calculatorData?.operator ?? ""}

@@ -13,11 +13,11 @@ import {
 // components
 import { CustomHead } from "@/layout/CustomHead";
 import { H1 } from "@/components/H1";
-import { InputCustom } from "@/components/Input/styles";
-// types
+import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import { DotSpinner } from "@/components/DotSpinner";
+// types
 import { IPrimeNumberData } from "@/dtos/primeNumber";
 
 export default function PrimeNumber() {
@@ -124,7 +124,7 @@ export default function PrimeNumber() {
           first 10 prime numbers automatically.
         </Subtitle>
         <Form onSubmit={handleSubmit}>
-          <InputCustom
+          <Input
             type="number"
             placeholder="Number"
             value={primeNumberData?.number ?? ""}
