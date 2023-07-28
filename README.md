@@ -32,7 +32,7 @@
 - [x] Exercise 1: Simple Calculator
 - [x] Exercise 2: Prime Numbers
 - [x] Exercise 3: Factorial
-- [ ] Exercise 4: Palindrome
+- [x] Exercise 4: Palindrome
 - [ ] Exercise 5: Table
 - [ ] Exercise 6: Vowel Counter
 - [ ] Exercise 7: Grade Average
