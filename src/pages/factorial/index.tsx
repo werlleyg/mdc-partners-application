@@ -87,8 +87,8 @@ export default function Factorial() {
       <Container>
         <H1>{titlePage}</H1>
         <Subtitle>
-          Please enter the number, and the factorial will be calculated
-          automatically.
+          Please enter the number, and the factorial will be calculated when you
+          press the button.
         </Subtitle>
         <Form onSubmit={handleSubmit}>
           <InputCustom
