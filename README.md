@@ -31,7 +31,7 @@
 - [x] Install essential dependencies
 - [x] Exercise 1: Simple Calculator
 - [x] Exercise 2: Prime Numbers
-- [ ] Exercise 3: Factorial
+- [x] Exercise 3: Factorial
 - [ ] Exercise 4: Palindrome
 - [ ] Exercise 5: Table
 - [ ] Exercise 6: Vowel Counter
