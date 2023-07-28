@@ -28,15 +28,13 @@ export default function GradeAverage() {
       let value = event.target.value.trim();
       // get input name
       const name = event.target.name;
-
-      // check if name is operator and check regex value
+      // check value
       if (!checkRegex.test(value)) return;
-
-      let auxValue = parseFloat(value.replace(",", "."));
-
-      if (auxValue > 10)
+      // value number
+      let auxValueNumber = parseFloat(value.replace(",", "."));
+      // check if value is between 0 and 10
+      if (auxValueNumber > 10)
         return toast.warn("The grade should be between 0 and 10");
-
       // set data value
       setGradeAverageData({
         ...gradeAverageData,
@@ -46,12 +44,10 @@ export default function GradeAverage() {
     [gradeAverageData],
   );
 
+  // calculate average
   const calculateAverage = useCallback(() => {
     const { firstGrade, secondGrade, thirdGrade }: IGradeAverage =
       gradeAverageData as IGradeAverage;
-
-    console.log("[firstGrade]=> ", firstGrade);
-
     // Check if all attributes exist
     if (
       (!firstGrade && firstGrade !== "0") ||
@@ -60,16 +56,18 @@ export default function GradeAverage() {
     )
       return setShowSpinner(false);
 
+    // convert value to number
     const firstGradeNumber = parseFloat(firstGrade?.replace(",", "."));
     const secondGradeNumber = parseFloat(secondGrade?.replace(",", "."));
     const thirdGradeNumber = parseFloat(thirdGrade?.replace(",", "."));
 
+    // grade average
     let gradeAverage: string = (
       (firstGradeNumber + secondGradeNumber + thirdGradeNumber) /
       3
     ).toFixed(2);
 
-    // set calculate result and show on screen
+    // set value result and show on screen
     setTimeout(() => {
       setGradeAverageResult({
         ...gradeAverageData,
@@ -91,7 +89,7 @@ export default function GradeAverage() {
       });
       // show spinner
       setShowSpinner(true);
-      // set calculator
+      // set calculate average
       calculateAverage();
     },
     [calculateAverage, gradeAverageData],
