@@ -1,6 +1,6 @@
 export interface ICalculator {
-  first_number?: number;
-  second_number?: number;
+  firstNumber?: number;
+  secondNumber?: number;
   operator?: string;
   result?: number;
 }
