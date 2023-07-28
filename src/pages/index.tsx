@@ -1,21 +1,36 @@
-import Head from "next/head";
+import { useState } from "react";
+
+// styles
+import { Deck, Main } from "./styles";
+
+// components
+import { CustomHead } from "@/layout/CustomHead";
+import { Card } from "@/components/Card";
+
+// types
+import { ICard } from "@/dtos/card";
+
+// icons
+import { BsFillCalculatorFill } from "react-icons/bs";
 
 export default function Home() {
+  const [cardData] = useState<ICard[]>([
+    {
+      title: "Simple Calculator",
+      Icon: BsFillCalculatorFill,
+      link: "/simplecalculator",
+    },
+  ]);
   return (
     <>
-      <Head>
-        <title>Dev Mid Test - Werlley Ponte</title>
-        <meta
-          name='description'
-          content='Project developed with the purpose of meeting the requirements for a mid-level developer test. 💻✨'
-        />
-        <meta
-          name='viewport'
-          content='width=device-width, initial-scale=1, user-scalable=no'
-        />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <main></main>
+      <CustomHead />
+      <Main>
+        <Deck>
+          {cardData.map((card) => (
+            <Card {...card} key={card.title} />
+          ))}
+        </Deck>
+      </Main>
     </>
   );
 }
