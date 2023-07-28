@@ -20,50 +20,20 @@ export const Form = styled.form`
   margin-top: 2rem;
 `;
 
-export const SpanDivider = styled.span`
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--subtitle-color);
-`;
-
-interface IDivResult {
-  showContent?: boolean;
-}
-
-export const DivResult = styled.div<IDivResult>`
-  overflow: hidden;
-  max-height: ${(props) => (props.showContent ? "5.5rem" : "0rem")};
-  padding: ${(props) => (props.showContent ? "1rem 0rem" : "0rem")};
-
-  transition: height ease-in-out 3s;
-  b {
-    background-color: rgba(var(--dark-rgb-color), 0.1);
-    padding: 0rem 0.25rem;
-    border-radius: 0.2rem;
-  }
-  span {
-    font-size: 2rem;
-    font-weight: 600;
-  }
-  .span__is-prime {
-    color: var(--success-color);
-  }
-  .span__not-prime {
-    color: var(--error-color);
-  }
-`;
-
 export const DivDeck = styled.div`
   padding-top: 1rem;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(3.75rem, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin: 0 auto;
+  width: min(100%, 40rem);
+  align-items: center;
+  justify-content: center;
 `;
 
-export const DivNumber = styled.div`
-  aspect-ratio: 1/1;
+export const DivResultCard = styled.div`
   background-color: var(--white-color);
+  min-width: 7rem;
   color: var(--primary-color);
   text-align: center;
   padding: 1.25rem;
