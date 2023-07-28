@@ -1,5 +1,4 @@
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
-import { toast } from "react-toastify";
 
 // styles
 import {
@@ -16,16 +15,10 @@ import { CustomHead } from "@/layout/CustomHead";
 import { H1 } from "@/components/H1";
 import { InputCustom } from "@/components/Input/styles";
 // types
-import { ICalculator } from "@/dtos/calculator";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import { DotSpinner } from "@/components/DotSpinner";
-
-interface IPrimeNumberData {
-  number?: number;
-  isPrime?: boolean;
-  showResult?: boolean;
-}
+import { IPrimeNumberData } from "@/dtos/primeNumber";
 
 export default function PrimeNumber() {
   const [titlePage] = useState<string>("Prime Number");
@@ -38,12 +31,12 @@ export default function PrimeNumber() {
   const handleChangeInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const checkRegex = /^\d*$/g;
+      // get input value
       let value = event.target.value.trim();
+      // get input name
       const name = event.target.name;
-
       // check if value is type number
       if (!checkRegex.test(value)) return;
-
       // set number value and rest isPrime and ShowResult values
       setPrimeNumberData({
         ...primeNumberData,
@@ -55,13 +48,13 @@ export default function PrimeNumber() {
     [primeNumberData],
   );
 
-  const numberIsPrime = useCallback((currentnumber: number) => {
+  const numberIsPrime = useCallback((currentNumber: number) => {
     // if the number is less than or equal to 1, it is not prime
-    if (currentnumber <= 1) return false;
+    if (currentNumber <= 1) return false;
 
     // if the number is divisible by any integer i between 2 and its square root, then it is not a prime number
-    for (let i = 2; i <= Math.sqrt(currentnumber); i++) {
-      if (currentnumber % i === 0) {
+    for (let i = 2; i <= Math.sqrt(currentNumber); i++) {
+      if (currentNumber % i === 0) {
         return false;
       }
     }
@@ -123,7 +116,7 @@ export default function PrimeNumber() {
   return (
     <>
       <CustomHead title={titlePage} />
-      <Header link='/' />
+      <Header link="/" />
       <Container>
         <H1>{titlePage}</H1>
         <Subtitle>
@@ -132,15 +125,20 @@ export default function PrimeNumber() {
         </Subtitle>
         <Form onSubmit={handleSubmit}>
           <InputCustom
-            type='number'
-            placeholder='Number'
+            type="number"
+            placeholder="Number"
             value={primeNumberData?.number ?? ""}
-            name='number'
+            name="number"
             onChange={handleChangeInput}
+            disabled={showSpinner}
             required
           />
 
-          <Button customTitle='Check if it is prime' customColor='secondary' />
+          <Button
+            customTitle="Check if it is prime"
+            customColor="secondary"
+            disabled={showSpinner}
+          />
         </Form>
 
         <DivResult showContent={primeNumberData?.showResult}>
@@ -164,8 +162,9 @@ export default function PrimeNumber() {
           customTitle={`Generate ${
             listNumberData.length > 0 ? "more" : "the first"
           } 10 prime numbers`}
-          customColor='secondary'
+          customColor="secondary"
           onClick={handleSetShowPrimeNumbers}
+          disabled={showSpinner}
         />
         <DivDeck>
           {listNumberData?.map((primeNumber) => (

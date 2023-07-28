@@ -24,4 +24,9 @@ export const ButtonCustom = styled.button<IButton>`
     transform: translateY(-0.2rem);
     box-shadow: 0rem 1rem 1.5rem rgba(0, 0, 0, 0.1);
   }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
 `;

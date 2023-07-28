@@ -11,4 +11,9 @@ export const InputCustom = styled.input<IInput>`
   box-shadow: 0rem 0.5rem 2.5rem rgba(var(--dark-rgb-color), 0.1);
   text-align: center;
   color: var(--primary-color);
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
 `;

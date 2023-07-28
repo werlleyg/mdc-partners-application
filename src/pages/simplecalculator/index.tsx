@@ -7,6 +7,7 @@ import { Container, DivResult, Form, P, Span, Subtitle } from "./styles";
 import { CustomHead } from "@/layout/CustomHead";
 import { H1 } from "@/components/H1";
 import { InputCustom } from "@/components/Input/styles";
+import { DotSpinner } from "@/components/DotSpinner";
 // types
 import { ICalculator } from "@/dtos/calculator";
 import { Button } from "@/components/Button";
@@ -16,12 +17,16 @@ export default function SimpleCalculator() {
   const [titlePage] = useState<string>("Simple Calculator");
   const [calculatorData, setCalculatorData] = useState<ICalculator>();
   const [calculationResult, setCalculationResult] = useState<ICalculator>();
+  const [showSpinner, setShowSpinner] = useState<boolean>(false);
+  const DELAY_TIME: number = 3; // in seconds
 
   // handle change input
   const handleChangeInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const checkRegex = /^$|^[+\-*/]$/;
+      // get input value
       let value = event.target.value.trim();
+      // get input name
       const name = event.target.name;
 
       // check if name is operator and check regex value
@@ -67,21 +72,31 @@ export default function SimpleCalculator() {
         return toast.error("Calculation error");
     }
 
-    setCalculationResult({ ...calculatorData, result });
+    // set calculate result and show on screen
+    setTimeout(() => {
+      setCalculationResult({ ...calculatorData, result });
+      // hide spinner
+      setShowSpinner(false);
+    }, DELAY_TIME * 1000);
   }, [calculatorData]);
 
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+      // show spinner
+      setShowSpinner(true);
+      // hide show result
+      setCalculationResult({ ...calculatorData, result: undefined });
+      // set calculator
       calculator();
     },
-    [calculator],
+    [calculator, calculatorData],
   );
 
   return (
     <>
       <CustomHead title={titlePage} />
-      <Header link='/' />
+      <Header link="/" />
       <Container>
         <H1>{titlePage}</H1>
         <Subtitle>
@@ -90,30 +105,30 @@ export default function SimpleCalculator() {
         </Subtitle>
         <Form onSubmit={handleSubmit}>
           <InputCustom
-            type='number'
-            placeholder='First number (Ex.: 1, 2, 3...)'
+            type="number"
+            placeholder="First number (Ex.: 1, 2, 3...)"
             value={calculatorData?.first_number ?? ""}
-            name='first_number'
+            name="first_number"
             onChange={handleChangeInput}
             required
           />
           <InputCustom
-            type='number'
-            placeholder='Second number (Ex.: 1, 2, 3...)'
+            type="number"
+            placeholder="Second number (Ex.: 1, 2, 3...)"
             value={calculatorData?.second_number ?? ""}
-            name='second_number'
+            name="second_number"
             onChange={handleChangeInput}
             required
           />
           <InputCustom
-            type='text'
-            placeholder='Operator (Ex.: +, -, * or /)'
+            type="text"
+            placeholder="Operator (Ex.: +, -, * or /)"
             value={calculatorData?.operator ?? ""}
-            name='operator'
+            name="operator"
             onChange={handleChangeInput}
             required
           />
-          <Button customTitle='Calculate' customColor='secondary' />
+          <Button customTitle="Calculate" customColor="secondary" />
         </Form>
         {calculationResult?.result && (
           <DivResult>
@@ -125,6 +140,7 @@ export default function SimpleCalculator() {
             <Span>{calculationResult?.result}</Span>
           </DivResult>
         )}
+        {showSpinner && <DotSpinner />}
       </Container>
     </>
   );

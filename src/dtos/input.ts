@@ -6,6 +6,7 @@ export interface IInput {
   type: "number" | "text";
   name: string;
   required: boolean;
+  disabled?: boolean;
   value?: string | number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
