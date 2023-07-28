@@ -32,7 +32,7 @@ interface IDivResult {
 
 export const DivResult = styled.div<IDivResult>`
   overflow: hidden;
-  max-height: ${(props) => (props.showContent ? "5.5rem" : "0px")};
+  max-height: ${(props) => (props.showContent ? "5.5rem" : "0rem")};
   padding: ${(props) => (props.showContent ? "1rem 0rem" : "0rem")};
 
   transition: height ease-in-out 3s;
@@ -56,11 +56,8 @@ export const DivResult = styled.div<IDivResult>`
 export const DivDeck = styled.div`
   padding-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(
-    5,
-    minmax(60px, 1fr)
-  ); /* Definindo as colunas */
-  gap: 16px; /* Espaçamento entre as colunas */
+  grid-template-columns: repeat(5, minmax(3.75rem, 1fr));
+  gap: 1rem;
   margin: 0 auto;
 `;
 

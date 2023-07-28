@@ -26,7 +26,7 @@ interface IDivResult {
 
 export const DivResult = styled.div<IDivResult>`
   overflow: hidden;
-  max-height: ${(props) => (props.showContent ? "5.5rem" : "0px")};
+  max-height: ${(props) => (props.showContent ? "5.5rem" : "0rem")};
   padding: ${(props) => (props.showContent ? "1rem 0rem" : "0rem")};
 
   transition: height ease-in-out 3s;
