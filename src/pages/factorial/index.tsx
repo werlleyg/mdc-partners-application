@@ -6,16 +6,12 @@ import { Container, DivResult, Form, P, Span, Subtitle } from "./styles";
 import { CustomHead } from "@/layout/CustomHead";
 import { H1 } from "@/components/H1";
 import { InputCustom } from "@/components/Input/styles";
-// types
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import { DotSpinner } from "@/components/DotSpinner";
 
-interface IFactorialNumberData {
-  number?: number;
-  factorialResult?: number;
-  showResult?: boolean;
-}
+// types
+import { IFactorialNumberData } from "@/dtos/factorial";
 
 export default function Factorial() {
   const [titlePage] = useState<string>("Factorial");
@@ -101,10 +97,15 @@ export default function Factorial() {
             value={factorialNumberData?.number ?? ""}
             name="number"
             onChange={handleChangeInput}
+            disabled={showSpinner}
             required
           />
 
-          <Button customTitle="Calculate fatorial" customColor="secondary" />
+          <Button
+            customTitle="Calculate fatorial"
+            customColor="secondary"
+            disabled={showSpinner}
+          />
         </Form>
         {factorialNumberData?.showResult}
 
