@@ -15,6 +15,7 @@ import { BsFillCalculatorFill } from "react-icons/bs";
 import { TbNumbers } from "react-icons/tb";
 import { FaExclamation, FaSync, FaHashtag } from "react-icons/fa";
 import { AiOutlineFontColors } from "react-icons/ai";
+import { IoMdSchool } from "react-icons/io";
 
 export default function Home() {
   const [cardData] = useState<ICard[]>([
@@ -47,6 +48,11 @@ export default function Home() {
       title: "Vowel Counter",
       Icon: AiOutlineFontColors,
       link: "/vowelcounter",
+    },
+    {
+      title: "Grade Average",
+      Icon: IoMdSchool,
+      link: "/gradeaverage",
     },
   ]);
   return (
