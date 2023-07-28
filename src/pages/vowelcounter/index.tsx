@@ -1,24 +1,16 @@
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 
 // styles
-import {
-  Container,
-  DivDeck,
-  DivResult,
-  DivResultCard,
-  Form,
-  P,
-  Span,
-  Subtitle,
-} from "./styles";
+import { Container, DivResult, Form, P, Span, Subtitle } from "./styles";
 // components
 import { CustomHead } from "@/layout/CustomHead";
 import { H1 } from "@/components/H1";
 import { InputCustom } from "@/components/Input/styles";
-// types
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import { DotSpinner } from "@/components/DotSpinner";
+
+// types
 import { IVowelCounterData } from "@/dtos/vowelcounter";
 
 // utils
@@ -39,7 +31,7 @@ export default function VowelCounter() {
       let value = event.target.value;
       // get input name
       const name = event.target.name;
-      // set data value and rest isPrime and ShowResult values
+      // set data value
       setVowelCounterData({
         ...vowelCounterData,
         [name]: value,
@@ -55,6 +47,7 @@ export default function VowelCounter() {
     // check if value exists
     if (!value) return;
 
+    // remove vowel accent
     const auxValue = removeAccentVowels(value);
 
     const valueArray: string[] = auxValue.toLowerCase().split("");

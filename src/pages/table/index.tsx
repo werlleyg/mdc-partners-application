@@ -5,11 +5,12 @@ import { Container, DivDeck, DivResultCard, Form, Subtitle } from "./styles";
 // components
 import { CustomHead } from "@/layout/CustomHead";
 import { H1 } from "@/components/H1";
-import { InputCustom } from "@/components/Input/styles";
-// types
+import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import { DotSpinner } from "@/components/DotSpinner";
+
+// types
 import { ITableData, ITableResult } from "@/dtos/table";
 
 export default function Table() {
@@ -89,7 +90,7 @@ export default function Table() {
           table from 1 to 10.
         </Subtitle>
         <Form onSubmit={handleSubmit}>
-          <InputCustom
+          <Input
             type="text"
             placeholder="Number"
             value={tableData?.number ?? ""}

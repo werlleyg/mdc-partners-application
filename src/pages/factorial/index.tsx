@@ -5,7 +5,7 @@ import { Container, DivResult, Form, P, Span, Subtitle } from "./styles";
 // components
 import { CustomHead } from "@/layout/CustomHead";
 import { H1 } from "@/components/H1";
-import { InputCustom } from "@/components/Input/styles";
+import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import { DotSpinner } from "@/components/DotSpinner";
@@ -90,7 +90,7 @@ export default function Factorial() {
           press the button.
         </Subtitle>
         <Form onSubmit={handleSubmit}>
-          <InputCustom
+          <Input
             type="text"
             placeholder="Number"
             value={factorialNumberData?.number ?? ""}
