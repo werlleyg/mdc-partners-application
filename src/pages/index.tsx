@@ -13,6 +13,7 @@ import { ICard } from "@/dtos/card";
 // icons
 import { BsFillCalculatorFill } from "react-icons/bs";
 import { TbNumbers } from "react-icons/tb";
+import { FaExclamation } from "react-icons/fa";
 
 export default function Home() {
   const [cardData] = useState<ICard[]>([
@@ -25,6 +26,11 @@ export default function Home() {
       title: "Prime Number",
       Icon: TbNumbers,
       link: "/primenumber",
+    },
+    {
+      title: "Factorial",
+      Icon: FaExclamation,
+      link: "/factorial",
     },
   ]);
   return (
