@@ -42,31 +42,34 @@ export default function SimpleCalculator() {
   );
 
   const calculator = useCallback(() => {
-    const { first_number, second_number, operator }: ICalculator =
-      calculatorData as ICalculator;
+    const {
+      firstNumber: firstNumber,
+      secondNumber: secondNumber,
+      operator,
+    }: ICalculator = calculatorData as ICalculator;
 
     // Check if all attributes exist
-    if (!first_number || !second_number || !operator) return;
+    if (!firstNumber || !secondNumber || !operator) return;
 
     let result: number;
 
     // compare operator character
     switch (operator) {
       case "+":
-        result = first_number + second_number;
+        result = firstNumber + secondNumber;
         break;
       case "-":
-        result = first_number - second_number;
+        result = firstNumber - secondNumber;
         break;
       case "*":
-        result = first_number * second_number;
+        result = firstNumber * secondNumber;
         break;
       case "/":
-        if (second_number == 0)
+        if (secondNumber == 0)
           return toast.warn(
             "For this operation, the second number cannot be equal to 0.",
           );
-        result = first_number / second_number;
+        result = firstNumber / secondNumber;
         break;
       default:
         return toast.error("Calculation error");
@@ -107,16 +110,16 @@ export default function SimpleCalculator() {
           <InputCustom
             type="number"
             placeholder="First number (Ex.: 1, 2, 3...)"
-            value={calculatorData?.first_number ?? ""}
-            name="first_number"
+            value={calculatorData?.firstNumber ?? ""}
+            name="firstNumber"
             onChange={handleChangeInput}
             required
           />
           <InputCustom
             type="number"
             placeholder="Second number (Ex.: 1, 2, 3...)"
-            value={calculatorData?.second_number ?? ""}
-            name="second_number"
+            value={calculatorData?.secondNumber ?? ""}
+            name="secondNumber"
             onChange={handleChangeInput}
             required
           />
@@ -133,9 +136,9 @@ export default function SimpleCalculator() {
         {calculationResult?.result && (
           <DivResult>
             <P>
-              The result of <b>{calculationResult?.first_number}</b>{" "}
+              The result of <b>{calculationResult?.firstNumber}</b>{" "}
               {calculationResult?.operator}{" "}
-              <b>{calculationResult?.second_number}</b> is
+              <b>{calculationResult?.secondNumber}</b> is
             </P>
             <Span>{calculationResult?.result}</Span>
           </DivResult>

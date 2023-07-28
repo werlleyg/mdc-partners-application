@@ -13,7 +13,7 @@ import { ICard } from "@/dtos/card";
 // icons
 import { BsFillCalculatorFill } from "react-icons/bs";
 import { TbNumbers } from "react-icons/tb";
-import { FaExclamation, FaSync } from "react-icons/fa";
+import { FaExclamation, FaSync, FaHashtag } from "react-icons/fa";
 
 export default function Home() {
   const [cardData] = useState<ICard[]>([
@@ -36,6 +36,11 @@ export default function Home() {
       title: "Palindrome",
       Icon: FaSync,
       link: "/palindrome",
+    },
+    {
+      title: "Table",
+      Icon: FaHashtag,
+      link: "/table",
     },
   ]);
   return (

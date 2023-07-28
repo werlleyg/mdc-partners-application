@@ -82,7 +82,7 @@ export default function Factorial() {
   return (
     <>
       <CustomHead title={titlePage} />
-      <Header link='/' />
+      <Header link="/" />
       <Container>
         <H1>{titlePage}</H1>
         <Subtitle>
@@ -91,18 +91,18 @@ export default function Factorial() {
         </Subtitle>
         <Form onSubmit={handleSubmit}>
           <InputCustom
-            type='text'
-            placeholder='Number'
+            type="text"
+            placeholder="Number"
             value={factorialNumberData?.number ?? ""}
-            name='number'
+            name="number"
             onChange={handleChangeInput}
             disabled={showSpinner}
             required
           />
 
           <Button
-            customTitle='Calculate fatorial'
-            customColor='secondary'
+            customTitle="Calculate fatorial"
+            customColor="secondary"
             disabled={showSpinner}
           />
         </Form>

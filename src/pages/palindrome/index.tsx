@@ -84,7 +84,7 @@ export default function Palindrome() {
   return (
     <>
       <CustomHead title={titlePage} />
-      <Header link='/' />
+      <Header link="/" />
       <Container>
         <H1>{titlePage}</H1>
         <Subtitle>
@@ -93,18 +93,18 @@ export default function Palindrome() {
         </Subtitle>
         <Form onSubmit={handleSubmit}>
           <InputCustom
-            type='text'
-            placeholder='Value'
+            type="text"
+            placeholder="Value"
             value={palindromeData?.value ?? ""}
-            name='value'
+            name="value"
             onChange={handleChangeInput}
             disabled={showSpinner}
             required
           />
 
           <Button
-            customTitle='Check if is palindrome'
-            customColor='secondary'
+            customTitle="Check if is palindrome"
+            customColor="secondary"
             disabled={showSpinner}
           />
         </Form>
