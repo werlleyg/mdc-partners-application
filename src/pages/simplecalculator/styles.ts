@@ -2,6 +2,15 @@ import styled from "@emotion/styled";
 
 export const Container = styled.main`
   text-align: center;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Subtitle = styled.p`
+  color: var(--subtitle-color);
+  width: min(100%, 32rem);
+  margin-inline: auto;
 `;
 
 export const Form = styled.form`
