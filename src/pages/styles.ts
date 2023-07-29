@@ -9,4 +9,5 @@ export const Deck = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 export default Main;

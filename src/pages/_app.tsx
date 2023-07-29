@@ -1,3 +1,4 @@
+import { CustomFooter } from "@/layout/CustomFooter";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 
@@ -9,10 +10,10 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Component {...pageProps} />
-
+      <CustomFooter />
       {/* toastify settings  */}
       <ToastContainer
-        position='top-right'
+        position="top-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -21,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='light'
+        theme="light"
       />
     </>
   );

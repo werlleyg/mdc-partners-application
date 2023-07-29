@@ -38,7 +38,7 @@
 - [x] Exercise 7: Grade Average
 - [x] Exercise 8: Interest Calculation
 - [x] CI/CD to deploy on Vercel
-- [ ] Header and footer
+- [x] Header and footer
 - [ ] Responsiveness of the website layout
 
 <br/>

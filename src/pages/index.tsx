@@ -6,6 +6,7 @@ import { Deck, Main } from "./styles";
 // components
 import { CustomHead } from "@/layout/CustomHead";
 import { Card } from "@/components/Card";
+import { MyHeader } from "@/layout/MyHeader";
 
 // types
 import { ICard } from "@/dtos/card";
@@ -65,6 +66,7 @@ export default function Home() {
     <>
       <CustomHead />
       <Main>
+        <MyHeader />
         <Deck>
           {cardData.map((card) => (
             <Card {...card} key={card.title} />
