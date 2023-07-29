@@ -5,8 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { toast } from "react-toastify";
-import { unmask, currency } from "remask";
+import { currency } from "remask";
 
 // styles
 import {
@@ -56,82 +55,81 @@ export default function InterestCalculation() {
         ...interestCalculationData,
         [name]: value,
       });
-
-      console.log("[", name, "]:", value);
     },
     [interestCalculationData],
   );
 
-  const calculateSimpleInterestAmount = useCallback(() => {
-    const {
-      initialInvestment,
-      interestRate,
-      investmentMonths,
-    }: IInterestCalculationData =
-      interestCalculationData as IInterestCalculationData;
+  const calculateSimpleInterestAmount = useCallback(
+    ({
+      interestRateNumber,
+      investmentMonthsNumber,
+      initialInvestmentNumber,
+    }: any) => {
+      // get investment amount
+      const investmentAmount: string =
+        "" +
+        (1 + (interestRateNumber * investmentMonthsNumber) / 100) *
+          initialInvestmentNumber;
 
-    if (!initialInvestment || !interestRate || !investmentMonths) return;
+      return investmentAmount;
+    },
+    [],
+  );
+  const calculateCompoundInterestAmount = useCallback(
+    ({
+      interestRateNumber,
+      investmentMonthsNumber,
+      initialInvestmentNumber,
+    }: any) => {
+      const investmentAmount: string =
+        "" +
+        initialInvestmentNumber *
+          Math.pow(1 + interestRateNumber / 100, investmentMonthsNumber);
 
-    const initialInvestmentNumber = parseFloat(
-      initialInvestment.replace(",", "."),
-    );
-    const interestRateNumber = parseFloat(interestRate.replace(",", "."));
-    const investmentMonthsNumber = parseFloat(investmentMonths);
-
-    const investmentAmount: string =
-      "" +
-      (1 + (interestRateNumber * investmentMonthsNumber) / 100) *
-        initialInvestmentNumber;
-
-    // set value result and show on screen
-    setTimeout(() => {
-      setInterestCalculationResult({
-        ...interestCalculationData,
-        investmentAmount,
-        showResult: true,
-      });
-      // hide spinner
-      setShowSpinner(false);
-    }, DELAY_TIME * 1000);
-  }, [interestCalculationData]);
-  const calculateCompoundInterestAmount = useCallback(() => {
-    const {
-      initialInvestment,
-      interestRate,
-      investmentMonths,
-    }: IInterestCalculationData =
-      interestCalculationData as IInterestCalculationData;
-
-    if (!initialInvestment || !interestRate || !investmentMonths) return;
-
-    const initialInvestmentNumber = parseFloat(
-      initialInvestment.replace(",", "."),
-    );
-    const interestRateNumber = parseFloat(interestRate.replace(",", "."));
-    const investmentMonthsNumber = parseFloat(investmentMonths);
-
-    const investmentAmount: string =
-      "" +
-      initialInvestmentNumber *
-        Math.pow(1 + interestRateNumber / 100, investmentMonthsNumber);
-    // set value result and show on screen
-    setTimeout(() => {
-      setInterestCalculationResult({
-        ...interestCalculationData,
-        investmentAmount,
-        showResult: true,
-      });
-      // hide spinner
-      setShowSpinner(false);
-    }, DELAY_TIME * 1000);
-  }, [interestCalculationData]);
+      return investmentAmount;
+    },
+    [],
+  );
 
   const calculateAmount = useCallback(() => {
-    console.log("[check]", interestCalculationData?.typeOfInterest);
+    const {
+      initialInvestment,
+      interestRate,
+      investmentMonths,
+    }: IInterestCalculationData =
+      interestCalculationData as IInterestCalculationData;
 
-    if (interestCalculationData?.typeOfInterest === "simple_interest")
-      return calculateSimpleInterestAmount();
-    return calculateCompoundInterestAmount();
+    // check if values exists
+    if (!initialInvestment || !interestRate || !investmentMonths) return;
+
+    // convert values to number
+    const initialInvestmentNumber = parseFloat(
+      initialInvestment.replace(",", "."),
+    );
+    const interestRateNumber = parseFloat(interestRate.replace(",", "."));
+    const investmentMonthsNumber = parseFloat(investmentMonths);
+
+    const payload = {
+      initialInvestmentNumber,
+      interestRateNumber,
+      investmentMonthsNumber,
+    };
+
+    const investmentAmount: string =
+      interestCalculationData?.typeOfInterest === "simple_interest"
+        ? calculateSimpleInterestAmount(payload)
+        : calculateCompoundInterestAmount(payload);
+
+    // set value result and show on screen
+    setTimeout(() => {
+      setInterestCalculationResult({
+        ...interestCalculationData,
+        investmentAmount,
+        showResult: true,
+      });
+      // hide spinner
+      setShowSpinner(false);
+    }, DELAY_TIME * 1000);
   }, [
     calculateCompoundInterestAmount,
     calculateSimpleInterestAmount,
@@ -141,7 +139,7 @@ export default function InterestCalculation() {
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      // hide grade average result
+      // hide result
       setInterestCalculationResult({
         ...interestCalculationData,
         showResult: false,
@@ -156,7 +154,6 @@ export default function InterestCalculation() {
 
   const getCurrencyFormat = useCallback((value: string | undefined) => {
     if (!value) return;
-
     const valueNumber = parseFloat(value.replace(",", "."));
     return currency.mask({
       locale: "en-US",
@@ -243,9 +240,14 @@ export default function InterestCalculation() {
           <DivResult>
             <P>
               With the initial investment of{" "}
-              {getCurrencyFormat(interestCalculationResult?.initialInvestment)},
-              at an interest rate of {interestCalculationResult.interestRate}%
-              over {interestCalculationResult.investmentMonths} months, your
+              <b>
+                {getCurrencyFormat(
+                  interestCalculationResult?.initialInvestment,
+                )}
+              </b>
+              , at an interest rate of{" "}
+              <b>{interestCalculationResult.interestRate}%</b> over{" "}
+              <b>{interestCalculationResult.investmentMonths}</b> months, your
               total amount will be
             </P>
             <Span>
