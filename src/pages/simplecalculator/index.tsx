@@ -48,25 +48,31 @@ export default function SimpleCalculator() {
     // Check if all attributes exist
     if (!firstNumber || !secondNumber || !operator) return;
 
+    // convert value to number
+    const auxFirstNumber = parseFloat(firstNumber?.replace(",", "."));
+    const auxSecondNumber = parseFloat(secondNumber?.replace(",", "."));
+
     let result: number;
 
     // compare operator character
     switch (operator) {
       case "+":
-        result = firstNumber + secondNumber;
+        result = auxFirstNumber + auxSecondNumber;
         break;
       case "-":
-        result = firstNumber - secondNumber;
+        result = auxFirstNumber - auxSecondNumber;
         break;
       case "*":
-        result = firstNumber * secondNumber;
+        result = auxFirstNumber * auxSecondNumber;
         break;
       case "/":
-        if (secondNumber == 0)
+        if (auxSecondNumber === 0) {
+          setShowSpinner(false);
           return toast.warn(
             "For this operation, the second number cannot be equal to 0.",
           );
-        result = firstNumber / secondNumber;
+        }
+        result = auxFirstNumber / auxSecondNumber;
         break;
       default:
         return toast.error("Calculation error");

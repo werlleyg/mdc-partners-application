@@ -16,6 +16,7 @@ import { TbNumbers } from "react-icons/tb";
 import { FaExclamation, FaSync, FaHashtag } from "react-icons/fa";
 import { AiOutlineFontColors } from "react-icons/ai";
 import { IoMdSchool } from "react-icons/io";
+import { IoCashOutline } from "react-icons/io5";
 
 export default function Home() {
   const [cardData] = useState<ICard[]>([
@@ -53,6 +54,11 @@ export default function Home() {
       title: "Grade Average",
       Icon: IoMdSchool,
       link: "/gradeaverage",
+    },
+    {
+      title: "Interest Calculation",
+      Icon: IoCashOutline,
+      link: "/interestcalculation",
     },
   ]);
   return (
