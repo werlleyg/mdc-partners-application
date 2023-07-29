@@ -25,7 +25,7 @@ interface IDivResult {
 }
 
 export const DivResult = styled.div<IDivResult>`
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
   max-height: ${(props) => (props.showContent ? "auto" : "0rem")};
   padding: ${(props) => (props.showContent ? "1rem 0rem" : "0rem")};
   word-wrap: break-word;
