@@ -55,14 +55,18 @@ export const DivResult = styled.div<IDivResult>`
 `;
 
 export const DivDeck = styled.div`
+  width: min(100%, 370px);
+  margin-inline: auto;
+  justify-content: center;
+  align-items: center;
   padding-top: 1rem;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(3.75rem, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  margin: 0 auto;
 `;
 
 export const DivNumber = styled.div`
+  width: 3.75rem;
   aspect-ratio: 1/1;
   background-color: var(--white-color);
   color: var(--primary-color);
