@@ -176,8 +176,8 @@ export default function InterestCalculation() {
       <Container>
         <H1>{titlePage}</H1>
         <Subtitle>
-          Please enter the grades of your three subjects and click the button to
-          calculate the average with up to two decimal places.
+          Enter your investment data and click the button to view your final
+          amount at the end of the period.
         </Subtitle>
         <Form onSubmit={handleSubmit}>
           <Input
