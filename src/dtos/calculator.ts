@@ -3,4 +3,5 @@ export interface ICalculator {
   secondNumber?: string;
   operator?: string;
   result?: number;
+  showResult?: boolean;
 }

@@ -80,7 +80,7 @@ export default function SimpleCalculator() {
 
     // set calculate result and show on screen
     setTimeout(() => {
-      setCalculationResult({ ...calculatorData, result });
+      setCalculationResult({ ...calculatorData, showResult: true, result });
       // hide spinner
       setShowSpinner(false);
     }, DELAY_TIME * 1000);
@@ -92,7 +92,11 @@ export default function SimpleCalculator() {
       // show spinner
       setShowSpinner(true);
       // hide show result
-      setCalculationResult({ ...calculatorData, result: undefined });
+      setCalculationResult({
+        ...calculatorData,
+        showResult: false,
+        result: undefined,
+      });
       // set calculator
       calculator();
     },
@@ -143,7 +147,7 @@ export default function SimpleCalculator() {
             disabled={showSpinner}
           />
         </Form>
-        {calculationResult?.result && (
+        {calculationResult?.showResult && (
           <DivResult>
             <P>
               The result of <b>{calculationResult?.firstNumber}</b>{" "}
