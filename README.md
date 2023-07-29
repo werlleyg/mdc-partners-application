@@ -15,8 +15,8 @@
     <img alt="Repository issues" src="https://img.shields.io/github/issues/werlleyg/mdc-partners-application?color=9747FF">
   </a>
 
-  <a href="#">
-    <img alt="GitHub website up/down" src="https://img.shields.io/website-up-down-green-red/https/siteaqui.com.br.svg">
+  <a href="https://mdc-partners-application.vercel.app/" target="_blank">
+    <img alt="GitHub website up/down" src="https://img.shields.io/website-up-down-green-red/https/mdc-partners-application.vercel.app/.svg">
   </a>
 </div>
 <br/>
