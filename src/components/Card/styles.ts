@@ -19,6 +19,7 @@ export const ButtonCard = styled.div`
     gap: 1rem;
     justify-content: center;
     align-items: center;
+    text-align: center;
 
     .icon__custom {
       font-size: 3rem;

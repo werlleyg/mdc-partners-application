@@ -5,6 +5,7 @@ export const Container = styled.main`
   gap: 1rem;
   display: flex;
   flex-direction: column;
+  min-height: 100%;
 `;
 
 export const Subtitle = styled.p`
