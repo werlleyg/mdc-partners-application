@@ -68,3 +68,5 @@ export const Span = styled.span`
   justify-content: center;
   color: var(--primary-color);
 `;
+
+export default Container;

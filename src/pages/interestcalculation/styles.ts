@@ -62,3 +62,5 @@ export const Label = styled.label`
   gap: 0.5rem;
   color: var(--subtitle-color);
 `;
+
+export default Container;

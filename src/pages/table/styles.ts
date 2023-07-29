@@ -53,3 +53,5 @@ export const DivResultCard = styled.div`
     }
   }
 `;
+
+export default Container;

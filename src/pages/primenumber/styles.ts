@@ -83,3 +83,5 @@ export const DivNumber = styled.div`
     }
   }
 `;
+
+export default Container;
