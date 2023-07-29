@@ -39,7 +39,7 @@
 - [x] Exercise 8: Interest Calculation
 - [x] CI/CD to deploy on Vercel
 - [x] Header and footer
-- [ ] Responsiveness of the website layout
+- [x] Responsiveness of the website layout
 
 <br/>
 

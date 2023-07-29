@@ -32,4 +32,27 @@ export const ButtonCard = styled.div`
     background-color: var(--primary-color);
     color: var(--white-color);
   }
+
+  @media screen and (max-width: 36.25rem) {
+    width: 47%;
+    a {
+      aspect-ratio: 3/4;
+      width: 47%;
+      padding: 1.25rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media screen and (max-width: 21.875rem) {
+    width: 100%;
+    aspect-ratio: 5/2;
+    a {
+      width: 100%;
+      flex-direction: row;
+      font-size: 0.9rem;
+      text-align: left;
+      padding: 1.25rem 1.75rem;
+      justify-content: flex-start;
+    }
+  }
 `;
