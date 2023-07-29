@@ -60,6 +60,7 @@ export const InputRadio = styled.input`
 `;
 export const Label = styled.label`
   display: flex;
+  align-items: center;
   gap: 0.5rem;
   color: var(--subtitle-color);
 `;
