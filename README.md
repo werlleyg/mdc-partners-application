@@ -37,7 +37,9 @@
 - [x] Exercise 6: Vowel Counter
 - [x] Exercise 7: Grade Average
 - [x] Exercise 8: Interest Calculation
-- [ ] CI/CD to deploy on Vercel
+- [x] CI/CD to deploy on Vercel
+- [ ] Header and footer
+- [ ] Responsiveness of the website layout
 
 <br/>
 
