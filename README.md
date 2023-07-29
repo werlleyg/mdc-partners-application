@@ -23,6 +23,19 @@
 <p align="center">
  Project developed with the purpose of meeting the requirements for a mid-level developer test. 💻✨
 </p>
+<br/>
+
+## 🛠 Technologies
+
+The tools below were used in the project's development:
+
+-   [Next.js 13](https://nextjs.org/)
+-   [TypeScript](https://www.typescriptlang.org/)
+-   [Toastify](https://fkhadra.github.io/react-toastify/introduction)
+-   [@emotion/styled](https://emotion.sh/docs/introduction)
+-   [Remask](https://github.com/brunobertolini/remask)
+-   [React Icons](https://react-icons.github.io/react-icons)
+
 
 ## :space_invader: Features
 
@@ -40,6 +53,14 @@
 - [x] CI/CD to deploy on Vercel
 - [x] Header and footer
 - [x] Responsiveness of the website layout
+
+
+## ⚙ Installation
+
+-   1. Clone and set up this repository [Mid Dev Test](https://github.com/werlleyg/mdc-partners-application)
+-   2. Run `npm i` or `yarn` in the project folder on your computer
+-   3. Run `npm run dev` or `yarn dev`
+-   4. Your project is already running 🔭
 
 <br/>
 
