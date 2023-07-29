@@ -143,7 +143,7 @@ export default function PrimeNumber() {
 
         <DivResult showContent={primeNumberData?.showResult}>
           <p>
-            {primeNumberData?.isPrime ? "Sim" : "Não"}, o númerio{" "}
+            {primeNumberData?.isPrime ? "Yes" : "Not"}, number{" "}
             <b>{primeNumberData?.number}</b>{" "}
           </p>
           <span
@@ -152,7 +152,7 @@ export default function PrimeNumber() {
             }
           >
             {" "}
-            {primeNumberData?.isPrime ? "" : "não"} é primo
+            {primeNumberData?.isPrime ? "" : "not"} is prime
           </span>
         </DivResult>
 
