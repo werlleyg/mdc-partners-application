@@ -17,3 +17,5 @@ export const P = styled.p`
     text-underline-offset: 0.125rem;
   }
 `;
+
+export default Container;
