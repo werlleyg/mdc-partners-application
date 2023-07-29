@@ -11,7 +11,7 @@ import { Header } from "@/components/Header";
 import { DotSpinner } from "@/components/DotSpinner";
 
 // types
-import { IVowelCounterData } from "@/dtos/vowelcounter";
+import { IVowelCounterData } from "@/dtos/vowelCounter";
 
 // utils
 import { removeAccentVowels } from "@/utils/removeAccentVowels";
