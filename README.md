@@ -64,6 +64,6 @@ The tools below were used in the project's development:
 
 <br/>
 
-Developed with love ❤️ by [Werlley Ponte](https://linkedin.com/in/werlleyg)
+Developed with love ❤️ by Werlley Ponte
 
 ---
